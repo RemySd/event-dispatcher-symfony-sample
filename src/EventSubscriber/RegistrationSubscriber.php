@@ -9,7 +9,7 @@ class RegistrationSubscriber implements EventSubscriberInterface
 {
     public function onUserRegistration(RegistrationEvent $event): void
     {
-        dump($event->getEmail());
+        // dump($event->getEmail());
     }
 
     public static function getSubscribedEvents(): array
