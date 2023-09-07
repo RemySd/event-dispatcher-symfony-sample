@@ -20,4 +20,15 @@ class RegistrationController extends AbstractController
             'controller_name' => 'RegistrationController',
         ]);
     }
+
+    #[Route('/valid', name: 'app_valid')]
+    public function validUser(EventDispatcherInterface $eventDispatcher): Response
+    {
+        $registrationEvent = new RegistrationEvent('remy.sainsard@gmail.com');
+        $eventDispatcher->dispatch($registrationEvent, 'user_valid');
+
+        return $this->render('registration/index.html.twig', [
+            'controller_name' => 'RegistrationController',
+        ]);
+    }
 }
